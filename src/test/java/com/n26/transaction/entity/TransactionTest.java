@@ -1,10 +1,8 @@
 package com.n26.transaction.entity;
 
-import org.junit.Test;
-
-import com.n26.transaction.entity.Transaction;
-
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 public class TransactionTest {
 

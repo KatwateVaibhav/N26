@@ -1,20 +1,20 @@
 package com.n26.transaction.service;
 
-import com.n26.transaction.entity.Transaction;
-import com.n26.transaction.repository.TransactionRepository;
-import com.n26.transaction.service.CleanUpService;
-import com.n26.transaction.service.DateUtil;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.n26.transaction.entity.Transaction;
+import com.n26.transaction.repository.TransactionRepository;
+import com.n26.transaction.service.impl.CleanUpService;
+import com.n26.transaction.service.impl.DateUtil;
 
 public class CleanUpServiceTest {
     private CleanUpService cleanUpService;

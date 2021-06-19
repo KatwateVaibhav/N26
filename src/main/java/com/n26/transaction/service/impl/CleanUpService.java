@@ -1,4 +1,4 @@
-package com.n26.transaction.service;
+package com.n26.transaction.service.impl;
 
 import com.n26.transaction.entity.Transaction;
 import com.n26.transaction.repository.TransactionRepository;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @EnableScheduling
 @Slf4j
 public class CleanUpService {
-    private static final long FIVE_MINUTES_IN_MILLIS = 5 * 60_000;
+    private static final long ONE_MINUTES_IN_MILLIS = 1*60_000;
 
     private final TransactionRepository transactionRepository;
     private final DateUtil dateUtil;
@@ -31,7 +31,7 @@ public class CleanUpService {
         this.dateUtil = dateUtil;
     }
 
-    @Scheduled(initialDelay = FIVE_MINUTES_IN_MILLIS, fixedDelay = FIVE_MINUTES_IN_MILLIS)
+    @Scheduled(initialDelay = ONE_MINUTES_IN_MILLIS, fixedDelay = ONE_MINUTES_IN_MILLIS)
     public void deleteOldData() {
         log.info("Start CleanUpService");
         Collection<Transaction> transactions = transactionRepository.findAll();

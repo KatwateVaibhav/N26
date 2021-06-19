@@ -1,4 +1,4 @@
-package com.n26.transaction.service;
+package com.n26.transaction.service.impl;
 
 import org.springframework.stereotype.Component;
 

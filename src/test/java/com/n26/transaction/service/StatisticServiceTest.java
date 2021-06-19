@@ -1,9 +1,12 @@
 package com.n26.transaction.service;
 
-import com.n26.transaction.entity.Statistic;
-import com.n26.transaction.entity.Transaction;
-import com.n26.transaction.service.DateUtil;
-import com.n26.transaction.service.StatisticService;
+import static org.junit.Assert.assertEquals;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,20 +16,17 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import com.n26.transaction.entity.Statistic;
+import com.n26.transaction.entity.Transaction;
+import com.n26.transaction.service.impl.DateUtil;
+import com.n26.transaction.service.impl.StatisticServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StatisticServiceTest {
     @Mock
     private DateUtil dateUtil;
     @InjectMocks
-    private StatisticService statisticService;
+    private StatisticServiceImpl statisticService;
 
     @Before
     public void setUp() {

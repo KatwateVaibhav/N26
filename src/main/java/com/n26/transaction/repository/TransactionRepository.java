@@ -50,7 +50,7 @@ public class TransactionRepository implements CrudRepository<Transaction, UUID> 
 
     @Override
     public List<Transaction> findAllById(@NotNull Iterable<UUID> uuids) {
-        List<Transaction> find = new ArrayList();
+        List<Transaction> find = new ArrayList<Transaction>();
         uuids.forEach(id -> find.add(transactionsStorage.get(id)));
         return find;
     }

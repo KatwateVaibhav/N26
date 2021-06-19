@@ -7,7 +7,8 @@ import java.util.UUID;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Transient;
-import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,6 +29,6 @@ public class Transaction {
      *  Transaction time in the ISO 8601 format YYYY-MM-DDThh:mm:ss.sssZ in the UTC timezone (this is not the current timestamp)
      */
     @NotNull
-    @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss.sssZ")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date timestamp;
 }

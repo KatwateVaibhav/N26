@@ -1,26 +1,25 @@
 package com.n26.transaction.controller;
 
-import com.n26.transaction.entity.Statistic;
-import com.n26.transaction.repository.TransactionRepository;
-import com.n26.transaction.service.DateUtil;
-import com.n26.transaction.service.StatisticService;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import com.n26.transaction.entity.Statistic;
+import com.n26.transaction.service.StatisticService;
+import com.n26.transaction.service.TransactionService;
+import com.n26.transaction.service.impl.DateUtil;
 
 
 @RestController
 @RequestMapping(path = "/statistics")
 public class StatisticController {
-    private final TransactionRepository transactionRepository;
-    private final StatisticService statisticService;
+	@Autowired
+    private TransactionService transactionService;
+	
+	@Autowired
+    private  StatisticService statisticService;
 
-    public StatisticController(StatisticService statisticService, TransactionRepository transactionRepository) {
-        this.statisticService = statisticService;
-        this.transactionRepository = transactionRepository;
-    }
 
     /**
      * GET /statistics
@@ -35,8 +34,8 @@ public class StatisticController {
      *      "count": 10
      * }
      */
-    @RequestMapping(method = GET)
+    @GetMapping
     public Statistic statisticsLastMinute() {
-        return statisticService.generateStatisticLastMinute(transactionRepository.findAll());
+        return statisticService.generateStatisticLastMinute(transactionService.findAll());
     }
 }

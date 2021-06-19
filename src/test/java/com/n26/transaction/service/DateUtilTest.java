@@ -1,16 +1,16 @@
 package com.n26.transaction.service;
 
-import com.n26.transaction.entity.Transaction;
-import com.n26.transaction.service.DateUtil;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.time.Instant;
 import java.util.Date;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.n26.transaction.entity.Transaction;
+import com.n26.transaction.service.impl.DateUtil;
 
 public class DateUtilTest {
     private DateUtil dateUtil;

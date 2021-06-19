@@ -2,7 +2,7 @@ package com.n26.transaction.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.n26.transaction.serializer.TxnSerializer;
-import com.n26.transaction.service.DateUtil;
+import com.n26.transaction.service.impl.DateUtil;
 
 import lombok.Data;
 
